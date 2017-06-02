@@ -1,5 +1,149 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 *{
 	box-sizing: border-box;
 	margin:0;
 	padding:0;
+}
+body {
+	padding-top:50px;/*b/c top nav is 50px so img top nav doesnt overlap over*/
+}
+
+h2 {
+	font-family:'Open Sans', sans-serif;
+	text-align:center;
+}
+
+p {
+	font-family:'Open Sans', sans-serif;
+}
+
+#about { /*do not recommend styling with IDS*/
+	color:tomato;
+}
+
+.top-nav {
+	display:flex;
+	background: #000;
+	min-height:50px;
+	align-items: center;
+	font-family: 'Open Sans', sans-serif;
+	position:fixed;
+	width:100%; /* told width bc position:fixed squishes it*/
+	top:0;/*tells nav bar to stay at top left corner*/
+	left:0;
+	overflow:hidden;
+}
+
+.top-nav a {
+	color:#fff;
+	text-decoration:none; 
+	border-bottom: 3px solid #000;
+	transition:.5s;
+	
+}
+
+.top-nav a:hover{
+	border-bottom:3px solid #047dbf;
+	color: #047dbf;
+	
+}
+
+.brand-text {
+	font-size: 30px;
+	margin-left:15px;
+}
+
+.top-nav-list {
+	display:flex;
+	list-style:none;
+	margin-left:auto;
+}
+
+.top-nav-list li {
+	margin: 0px 15px;
+	padding:5px;
+}
+
+.top-nav-list a { 
+	padding:5px; /* so you can hover around it and not exactly on text*/
+}
+
+.full-screen-bg {
+	height:calc(100vh - 50px);
+	width:100%;
+	background-image: url("../images/sky.jpeg");
+	background-size: cover;
+	background-position: center;
+	display:flex;
+	justify-content: center;
+	align-items:center;
+	color:#fff;
+	font-family: 'Open Sans', sans-serif;
+	font-size:50px;
+	transition: background-image .5s;
+}
+
+.flex-row{
+	display:flex;
+	/*flex-wrap: nowrap; default*/
+}
+
+.col-4-2-1{
+	width:23%;
+	margin: 1%;
+	padding:10px;
+}
+
+.img-100 {
+	width:100%;
+	border-radius: 50%;
+	
+}
+
+
+
+@media (max-width: 1200px) {
+	.full-screen-bg{
+		background-image:url("../images/sky2.jpeg");
+		font-size:30px;
+	}
+	.flex-row{
+		flex-wrap: wrap;
+	}
+	.col-4-2-1 {
+		width:48%;
+	}
+}
+
+@media (max-width:600px) {
+	.top-nav {
+		display:block; /*overrides display flex so nav will got squish*/
+	}
+	.full-screen-bg{
+		background-image: url("../images/sky3.jpeg");
+		font-size: 15px;
+		/*transition: .5s;*/
+		}
+	.col-4-2-1{
+			width:98%;
+		}
+	}
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  /*60% {
+    transform: scale(1);
+    opacity: 1;
+  }*/
+  120% {
+    transform: scale(1);
+  }
+}
+.full-screen-bg {
+  animation-duration: 2s;
+  animation-name: bounceIn;
 }
